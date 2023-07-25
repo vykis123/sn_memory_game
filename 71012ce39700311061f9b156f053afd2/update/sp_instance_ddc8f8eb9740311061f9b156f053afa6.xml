@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">0942e8679700311061f9b156f053affa</sp_column>
+        <sp_widget display_value="Working One">d3687ceb9740311061f9b156f053af56</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-21 09:23:17</sys_created_on>
+        <sys_id>ddc8f8eb9740311061f9b156f053afa6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Card Memory Game" source="x_872084_card_memo">71012ce39700311061f9b156f053afd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</sys_scope>
+        <sys_update_name>sp_instance_ddc8f8eb9740311061f9b156f053afa6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-21 09:23:17</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=ddc8f8eb9740311061f9b156f053afa6"/>
+</record_update>

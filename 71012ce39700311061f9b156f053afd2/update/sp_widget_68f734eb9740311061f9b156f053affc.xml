@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+	
+	c.data.gameData = [
+		{id: 1, value: ']]>👮<![CDATA[', status: ""},
+		{id: 1, value: ']]>👮<![CDATA[', status: ""},
+		{id: 2, value: ']]>👳<![CDATA[', status: ""},
+		{id: 2, value: ']]>👳<![CDATA[', status: ""},
+		{id: 3, value: ']]>👶<![CDATA[', status: ""},
+		{id: 3, value: ']]>👶<![CDATA[', status: ""},
+		{id: 4, value: ']]>👼<![CDATA[', status: ""},
+		{id: 4, value: ']]>👼<![CDATA[', status: ""},
+		{id: 5, value: ']]>🕵<![CDATA[', status: ""},
+		{id: 5, value: ']]>🕵<![CDATA[', status: ""},
+		{id: 6, value: ']]>👰<![CDATA[', status: ""},
+		{id: 6, value: ']]>👰<![CDATA[', status: ""},
+	].sort((a, b) => 0.5 - Math.random());
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.cotnainer {
+  width: 80%;
+  background: red;
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>memory</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Memory</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-21 09:19:41</sys_created_on>
+        <sys_id>68f734eb9740311061f9b156f053affc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Memory</sys_name>
+        <sys_package display_value="Card Memory Game" source="x_872084_card_memo">71012ce39700311061f9b156f053afd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</sys_scope>
+        <sys_update_name>sp_widget_68f734eb9740311061f9b156f053affc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-21 09:19:41</sys_updated_on>
+        <template><![CDATA[<div class="container">
+	<h1 class="heading">
+    Memory Card Game
+  </h1>
+  
+  <div class="board">
+    <div class="board__box" ng-repeat="gameValue in c.data.gameData">
+      <span>{{gameValue.value}}</span>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

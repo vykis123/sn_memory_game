@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function () {
+  // Global Declarations
+  var c = this;
+  c.data.gameData = [
+    { id: 1, value: "]]>🙈<![CDATA[", status: "" },
+    { id: 1, value: "]]>🙈<![CDATA[", status: "" },
+    { id: 2, value: "]]>💣<![CDATA[", status: "" },
+    { id: 2, value: "]]>💣<![CDATA[", status: "" },
+    { id: 3, value: "]]>👏<![CDATA[", status: "" },
+    { id: 3, value: "]]>👏<![CDATA[", status: "" },
+    { id: 4, value: "]]>🤳<![CDATA[", status: "" },
+    { id: 4, value: "]]>🤳<![CDATA[", status: "" },
+    { id: 5, value: "]]>🧠<![CDATA[", status: "" },
+    { id: 5, value: "]]>🧠<![CDATA[", status: "" },
+    { id: 6, value: "]]>👀<![CDATA[", status: "" },
+    { id: 6, value: "]]>👀<![CDATA[", status: "" },
+    { id: 7, value: "]]>👾<![CDATA[", status: "" },
+    { id: 7, value: "]]>👾<![CDATA[", status: "" },
+    { id: 8, value: "]]>👻<![CDATA[", status: "" },
+    { id: 8, value: "]]>👻<![CDATA[", status: "" },
+  ].sort((a, b) => 0.5 - Math.random());
+
+  let statusTracker = 0;
+  let cardTracking = 0;
+  const cardsNumber = c.data.gameData.length;
+  c.data.gameFinished = false;
+
+  c.onElementOnClick = (event) => {
+    const element = event.target;
+    const prevCard = document.getElementById(statusTracker.toString());
+
+    if (statusTracker === 0 && c.data.gameData.at(element.id).status === "")
+      return handelActiveCard(element);
+
+    if (statusTracker !== 0 && element.id !== statusTracker) {
+      if (
+        c.data.gameData.at(+statusTracker).id === c.data.gameData[element.id].id
+      )
+        return handelCorrectCard(element, prevCard);
+
+      handelWrongCard(element, prevCard);
+      return;
+    }
+  };
+
+  //HELPER FUNCTIONS////////////////////////////////////////////////////////////////////////////////////////
+
+  function checkIfGameIsWon() {
+    if (cardTracking === cardsNumber) c.data.gameFinished = true;
+  }
+
+  function handelActiveCard(element) {
+    c.data.gameData.at(element.id).status = "active";
+    element.classList.add("active");
+    statusTracker = element.id;
+  }
+
+  function handelCorrectCard(element, prevCard) {
+    if (c.data.gameData[element.id].status !== "correct") {
+      c.data.gameData[element.id].status = "correct";
+      c.data.gameData.at(+statusTracker).status = "correct";
+
+      prevCard.classList.add("correct");
+      element.classList.add("active", "correct");
+
+      statusTracker = 0;
+      cardTracking = cardTracking + 2;
+      checkIfGameIsWon();
+    }
+  }
+
+  function handelWrongCard(element, prevCard) {
+    c.data.gameData.at(+statusTracker).status = "";
+    c.data.gameData[element.id].status = "";
+
+    element.classList.add("active", "wrong");
+    prevCard.classList.add("wrong");
+    statusTracker = 0;
+
+    setTimeout(() => {
+      element.className = "board__box";
+      prevCard.classList.remove("wrong", "active");
+    }, 1000);
+  }
+
+  c.restartTheGame = () => location.reload();
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.container {
+  width: 80%;
+  margin-block: 50px;
+
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-block-end: 2rem;
+  animation: animateInfo 0.2s ease-in forwards;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.info__text {
+  color: #fff;
+  box-shadow: 0px 2px 0px 0px #41dd41;
+  text-align: center;
+  font-size: clamp(2.25rem, 2.5vw, 3.25rem);
+  font-family: monospace;
+}
+
+.info__btn {
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  align-self: end;
+  border: none;
+  background: none;
+  box-shadow: 0 0 20px 1px green;
+  color: #a09e9e;
+  font-family: monospace;
+  font-weight: 700;
+  transition: all 0.2s ease-in;
+  margin-inline: auto;
+
+  &amp;:hover,
+  &amp;:focus-visible {
+    color: #fff;
+    box-shadow: 0 0 1px 1px #41dd41;
+  }
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 2rem;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 430px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.board__box {
+  box-shadow: 0 0 0.75rem #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease-in, transform 0.5s ease-in,
+    background 0.75s ease-in;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+  animation: animateBoxes 0.2s ease forwards;
+  background: none;
+  border: none;
+  outline: none;
+
+  &amp;:hover,
+  &amp;:focus-visible {
+    box-shadow: 0 0 1.5rem #fff;
+    outline: transparent;
+  }
+}
+
+.board__box span {
+  display: block;
+  scale: 0;
+  transition: scale 0.5s ease-in;
+}
+
+.board__box.active {
+  transform: rotateY(0);
+}
+
+.board__box.wrong {
+  background: rgba(209, 54, 54, 0.588);
+  box-shadow: 0 0 0 1px red;
+}
+
+.board__box.correct {
+  background: rgba(57, 183, 57, 0.64);
+  box-shadow: 0 0 0 1px rgb(98, 241, 98);
+}
+
+.board__box.active span {
+  scale: 1;
+}
+
+@keyframes animateBoxes {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes animateInfo {
+  0% {
+    opacity: 0;
+    translate: 0 -5rem;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>working_one</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Working One</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-21 09:21:47</sys_created_on>
+        <sys_id>d3687ceb9740311061f9b156f053af56</sys_id>
+        <sys_mod_count>204</sys_mod_count>
+        <sys_name>Working One</sys_name>
+        <sys_package display_value="Card Memory Game" source="x_872084_card_memo">71012ce39700311061f9b156f053afd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</sys_scope>
+        <sys_update_name>sp_widget_d3687ceb9740311061f9b156f053af56</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-25 13:11:56</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <div class="info" ng-if="c.data.gameFinished">
+    <h2 class="info__text">Congratz. You won a game !</h2>
+    <button class="info__btn" ng-click="c.restartTheGame()">Play Again!</button>
+  </div>
+
+  <div class="board">
+    <div
+      class="board__box"
+      ng-click="c.onElementOnClick($event)"
+      ng-repeat="gameValue in c.data.gameData"
+      id="{{$index}}"
+    >
+      <span>{{gameValue.value}}</span>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

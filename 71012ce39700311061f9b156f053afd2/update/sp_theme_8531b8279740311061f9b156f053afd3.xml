@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables/>
+        <footer display_value="Memory footer">20b4342b9740311061f9b156f053af49</footer>
+        <footer_fixed>true</footer_fixed>
+        <header display_value="Memory">6731fc279740311061f9b156f053aff5</header>
+        <name>Memory</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-21 08:50:19</sys_created_on>
+        <sys_id>8531b8279740311061f9b156f053afd3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Memory</sys_name>
+        <sys_package display_value="Card Memory Game" source="x_872084_card_memo">71012ce39700311061f9b156f053afd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</sys_scope>
+        <sys_update_name>sp_theme_8531b8279740311061f9b156f053afd3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-21 09:09:44</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
+    </sp_theme>
+</record_update>

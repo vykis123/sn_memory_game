@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">0942e8679700311061f9b156f053affa</sp_column>
+        <sp_widget display_value="Memory Game">a58220a79700311061f9b156f053af58</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-21 09:20:18</sys_created_on>
+        <sys_id>2518b8eb9740311061f9b156f053af53</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Card Memory Game" source="x_872084_card_memo">71012ce39700311061f9b156f053afd2</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</sys_scope>
+        <sys_update_name>sp_instance_2518b8eb9740311061f9b156f053af53</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-21 09:20:18</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=2518b8eb9740311061f9b156f053af53"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</application>
+        <file_path/>
+        <instance_id>e39ed4d01b88b05032182f8dee4bcb2c</instance_id>
+        <instance_name>dev113506</instance_name>
+        <name>sp_instance_2518b8eb9740311061f9b156f053af53</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>1</order><roles/><short_description/><size>md</size><sp_column display_value="1">0942e8679700311061f9b156f053affa</sp_column><sp_widget display_value="Memory Game">a58220a79700311061f9b156f053af58</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-07-21 09:20:18</sys_created_on><sys_id>2518b8eb9740311061f9b156f053af53</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Card Memory Game" source="x_872084_card_memo">71012ce39700311061f9b156f053afd2</sys_package><sys_policy/><sys_scope display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</sys_scope><sys_update_name>sp_instance_2518b8eb9740311061f9b156f053af53</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-07-21 09:20:18</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=2518b8eb9740311061f9b156f053af53"/></record_update>]]></payload>
+        <payload_hash>145979086</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>7f2128279700311061f9b156f053afcb</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-21 09:20:18</sys_created_on>
+        <sys_id>6518b8eb9740311061f9b156f053af55</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18977bffefd0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-21 09:20:18</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>a918b8ebf14031109d6ecbc6d0315f54</update_guid>
+        <update_guid_history>a918b8ebf14031109d6ecbc6d0315f54:145979086</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">2318b0ab9740311061f9b156f053af73</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-07-21 09:20:26</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>dd90e89cfd104370b6e2bb2aa9a2d890</sys_id>
+        <sys_metadata>2518b8eb9740311061f9b156f053af53</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Card Memory Game" source="x_872084_card_memo">71012ce39700311061f9b156f053afd2</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</sys_scope>
+        <sys_scope_delete display_value="">722714ae5143492bae0b2b75065ae4a1</sys_scope_delete>
+        <sys_update_name>sp_instance_2518b8eb9740311061f9b156f053af53</sys_update_name>
+        <sys_update_version display_value="sp_instance_2518b8eb9740311061f9b156f053af53">6518b8eb9740311061f9b156f053af55</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-07-21 09:20:26</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
