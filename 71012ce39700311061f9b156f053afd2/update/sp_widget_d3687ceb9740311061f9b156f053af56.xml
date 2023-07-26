@@ -2,9 +2,10 @@
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
         <client_script><![CDATA[api.controller = function () {
-  // Global Declarations
+ 
+  // Global Declarations////////////////////////////////////////////////
   var c = this;
-  c.data.gameData = [
+  const gameObj = [
     { id: 1, value: "]]>🙈<![CDATA[", status: "" },
     { id: 1, value: "]]>🙈<![CDATA[", status: "" },
     { id: 2, value: "]]>💣<![CDATA[", status: "" },
@@ -22,24 +23,24 @@
     { id: 8, value: "]]>👻<![CDATA[", status: "" },
     { id: 8, value: "]]>👻<![CDATA[", status: "" },
   ].sort((a, b) => 0.5 - Math.random());
-
   let statusTracker = 0;
   let cardTracking = 0;
-  const cardsNumber = c.data.gameData.length;
+  const cardsNumber = gameObj.length;
+	
+	c.data.userMoves = 0;
+	c.data.gameData = gameObj;
   c.data.gameFinished = false;
 
+////MAIN LOGIC/////////////////////////////////////////////////////////////
   c.onElementOnClick = (event) => {
     const element = event.target;
     const prevCard = document.getElementById(statusTracker.toString());
 
-    if (statusTracker === 0 && c.data.gameData.at(element.id).status === "")
-      return handelActiveCard(element);
+    if (statusTracker === 0 && c.data.gameData.at(element.id).status === "") return handelActiveCard(element);
 
     if (statusTracker !== 0 && element.id !== statusTracker) {
-      if (
-        c.data.gameData.at(+statusTracker).id === c.data.gameData[element.id].id
-      )
-        return handelCorrectCard(element, prevCard);
+      
+			if (c.data.gameData.at(+statusTracker).id === c.data.gameData[element.id].id) return handelCorrectCard(element, prevCard);
 
       handelWrongCard(element, prevCard);
       return;
@@ -56,6 +57,7 @@
     c.data.gameData.at(element.id).status = "active";
     element.classList.add("active");
     statusTracker = element.id;
+		c.data.userMoves++
   }
 
   function handelCorrectCard(element, prevCard) {
@@ -64,30 +66,54 @@
       c.data.gameData.at(+statusTracker).status = "correct";
 
       prevCard.classList.add("correct");
-      element.classList.add("active", "correct");
+			element.classList.add("active", "correct");
 
-      statusTracker = 0;
-      cardTracking = cardTracking + 2;
-      checkIfGameIsWon();
-    }
-  }
+			statusTracker = 0;
+			cardTracking = cardTracking + 2;
+			c.data.userMoves++
+			checkIfGameIsWon();
+		}
+	}
 
-  function handelWrongCard(element, prevCard) {
-    c.data.gameData.at(+statusTracker).status = "";
-    c.data.gameData[element.id].status = "";
+	function handelWrongCard(element, prevCard) {
+		c.data.gameData.at(+statusTracker).status = "";
+		c.data.gameData[element.id].status = "";
 
-    element.classList.add("active", "wrong");
-    prevCard.classList.add("wrong");
-    statusTracker = 0;
+		element.classList.add("active", "wrong");
+		prevCard.classList.add("wrong");
+		c.data.userMoves++
+		statusTracker = 0;
 
-    setTimeout(() => {
-      element.className = "board__box";
-      prevCard.classList.remove("wrong", "active");
-    }, 1000);
-  }
+		setTimeout(() => {
+			element.className = "board__box";
+			prevCard.classList.remove("wrong", "active");
+		}, 1000);
+	}
 
-  c.restartTheGame = () => location.reload();
+	c.restartTheGame = () => {
+
+		const allCards = document.querySelectorAll('.board__box')
+
+		gameObj.forEach((element) => {
+			return element.status = '';
+		})
+
+
+		allCards.forEach((element) => {
+			element.classList.remove('active', 'correct')
+		})
+
+		gameObj.sort((a, b) => 0.5 - Math.random());
+		
+		c.data.gameFinished = false;
+		cardTracking = 0;
+		c.data.userMoves = 0;
+	}
 };
+
+
+
+
 ]]></client_script>
         <controller_as>c</controller_as>
         <css>.container {
@@ -180,6 +206,7 @@
 .board__box span {
   display: block;
   scale: 0;
+  opacity: 0;
   transition: scale 0.5s ease-in;
 }
 
@@ -195,10 +222,25 @@
 .board__box.correct {
   background: rgba(57, 183, 57, 0.64);
   box-shadow: 0 0 0 1px rgb(98, 241, 98);
+  animation: hideCorrectOnes .25s ease-in-out .75s forwards;
 }
 
 .board__box.active span {
   scale: 1;
+  opacity: 1;
+}
+
+.moves {
+  margin-block: 2rem;
+  text-align: center;
+  opacity: 0;
+  animation: animateInfo 0.2s ease-in .2s forwards;
+}
+
+.moves__info {
+  font-family: monospace;
+  color: #c5b3b3;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 @keyframes animateBoxes {
@@ -220,6 +262,24 @@
     translate: 0 0;
   }
 }
+
+@keyframes hideCorrectOnes {
+  0%{
+  opacity: 1;
+  }
+  50%{
+  opacity: .5;
+    scale: .5;
+  }
+  100%{
+  opacity: 0;
+   display: none;
+    pointer-events: none;
+  }
+}
+
+
+
 </css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -240,14 +300,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-07-21 09:21:47</sys_created_on>
         <sys_id>d3687ceb9740311061f9b156f053af56</sys_id>
-        <sys_mod_count>204</sys_mod_count>
+        <sys_mod_count>249</sys_mod_count>
         <sys_name>Working One</sys_name>
         <sys_package display_value="Card Memory Game" source="x_872084_card_memo">71012ce39700311061f9b156f053afd2</sys_package>
         <sys_policy/>
         <sys_scope display_value="Card Memory Game">71012ce39700311061f9b156f053afd2</sys_scope>
         <sys_update_name>sp_widget_d3687ceb9740311061f9b156f053af56</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-07-25 13:11:56</sys_updated_on>
+        <sys_updated_on>2023-07-26 09:17:34</sys_updated_on>
         <template><![CDATA[<div class="container">
   <div class="info" ng-if="c.data.gameFinished">
     <h2 class="info__text">Congratz. You won a game !</h2>
@@ -263,6 +323,14 @@
     >
       <span>{{gameValue.value}}</span>
     </div>
+  </div>
+  
+  <div 
+       class="moves"
+       ng-if="c.data.gameFinished">
+    <p class="moves__info">
+      You Finished Your Game in: {{::data.userMoves}} Moves.
+    </p>
   </div>
 </div>
 ]]></template>
