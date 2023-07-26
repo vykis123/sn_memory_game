@@ -1,7 +1,7 @@
 # sn_memory_game
 Memory Game on ServiceNow platform
 
-Simple memory game created on ServiceNow platform. If you want to try it, just fork the repository, connect it with your ServiceNow instance, and thats it :) All application is ready to use :) Or don't hesitate if you want to improve something :)
+Simple memory game created on ServiceNow platform using Portal and its angular based widgets. If you want to try it, just fork the repository, connect it with your ServiceNow instance, and thats it :) All application is ready to use :) Or don't hesitate if you want to improve something :)
 
 <img width="600" alt="memo 1" src="https://github.com/vykis123/sn_memory_game/assets/82774076/31222304-cec8-43d1-9d97-bf0361178710">
 
