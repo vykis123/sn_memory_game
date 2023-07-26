@@ -7,4 +7,5 @@ Simple memory game created on ServiceNow platform using Portal and its angular b
 
 <img width="600" alt="memo 2" src="https://github.com/vykis123/sn_memory_game/assets/82774076/1a4ca917-3664-45a7-b918-c616b40a430e">
 
-<img width="600" alt="memo 3" src="https://github.com/vykis123/sn_memory_game/assets/82774076/47794297-6308-4d5b-89a6-532957693655">
+<img width="600" alt="img4" src="https://github.com/vykis123/sn_memory_game/assets/82774076/31b777ca-84b6-4e62-8d3a-45d2df10a59a">
+
